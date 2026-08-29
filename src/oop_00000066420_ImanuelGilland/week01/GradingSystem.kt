@@ -1,7 +1,8 @@
 package oop_00000066420_ImanuelGilland.week01
 
-// Function di luar main()
-fun calculateStatus(score: Int) = if (score > 75) "Lulus" else "Tidak Lulus"
+/// Function di luar main()
+fun calculateStatus(score: Int) =
+    if (score > 75) "Lulus" else "Tidak Lulus"
 
 fun main() {
 
@@ -19,6 +20,14 @@ fun main() {
 
     println("Grade kamu: $grade")
 
-    // Panggil function di dalam main()
+    // Panggil function
     println("Status: ${calculateStatus(score)}")
+
+    // LANGKAH 5: Null Safety
+    val studentId: String? = null
+
+    // Jika null, gunakan nilai default 0
+    val idLength = studentId?.length ?: 0
+
+    println("Panjang ID: $idLength")
 }
