@@ -1,4 +1,9 @@
 package oop_00000066420_ImanuelGilland.week01
 
-class GradingSystem {
+fun main() {
+    var name: String = "John Thor"
+    var score: Int = 80
+
+    // Concatenation gaya lama
+    println("Nama: " + name + ", Nilai: " + score)
 }
