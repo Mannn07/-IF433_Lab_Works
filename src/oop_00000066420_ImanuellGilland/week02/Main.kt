@@ -5,24 +5,64 @@ import java.util.Scanner
 fun main() {
     val scanner = Scanner(System.`in`)
 
-    print("Masukkan Judul Buku: ")
-    val bookTitle = scanner.nextLine()
+    print("Masukkan Nama Hero: ")
+    val name = scanner.nextLine()
 
-    print("Masukkan Nama Peminjam: ")
-    val borrower = scanner.nextLine()
+    print("Masukkan Base Damage: ")
+    val baseDamage = scanner.nextInt()
 
-    print("Masukkan Lama Pinjam (hari): ")
-    var loanDuration = scanner.nextInt()
+    val hero = Hero(name, baseDamage = baseDamage)
 
-    if (loanDuration < 0) {
-        loanDuration = 1
+    var enemyHp = 100
+
+    println("\n=== MINI RPG BATTLE ===")
+    println("Hero: ${hero.name}")
+    println("HP Hero: ${hero.hp}")
+    println("Base Damage: ${hero.baseDamage}")
+    println("HP Enemy: $enemyHp")
+
+    while (hero.isAlive() && enemyHp > 0) {
+        println("\n1. Serang")
+        println("2. Kabur")
+        print("Pilih: ")
+
+        val choice = scanner.nextInt()
+
+        if (choice == 1) {
+            hero.attack("Enemy")
+
+            enemyHp -= hero.baseDamage
+
+            if (enemyHp < 0) {
+                enemyHp = 0
+            }
+
+            println("HP Enemy: $enemyHp")
+
+            if (enemyHp > 0) {
+                val enemyDamage = (10..20).random()
+
+                println("Enemy membalas!")
+                hero.takeDamage(enemyDamage)
+
+                println("Damage yang diterima: $enemyDamage")
+                println("HP Hero: ${hero.hp}")
+            }
+        } else if (choice == 2) {
+            println("${hero.name} memilih untuk kabur!")
+            break
+        } else {
+            println("Pilihan tidak valid!")
+        }
     }
 
-    val loan = Loan(bookTitle, borrower, loanDuration)
+    println("\n=== HASIL PERTARUNGAN ===")
 
-    println("\n--- DETAIL PEMINJAMAN ---")
-    println("Judul Buku: ${loan.bookTitle}")
-    println("Peminjam: ${loan.borrower}")
-    println("Lama Pinjam: ${loan.loanDuration} hari")
-    println("Total Denda: Rp${loan.calculateFine()}")
+    if (hero.isAlive() && enemyHp <= 0) {
+        println("${hero.name} menang!")
+    } else if (!hero.isAlive()) {
+        println("${hero.name} kalah!")
+    } else {
+        println("${hero.name} kabur dari pertarungan.")
+    }
 }
