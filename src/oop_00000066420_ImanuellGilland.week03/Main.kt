@@ -1,12 +1,15 @@
 package oop_00000066420_ImanuellGilland.week03
 
 fun main() {
-    val e = Employee("Budi")
+    // --- TUGAS 1: WEAPON ---
+    val pedang = Weapon("Pedang Excalibur")
 
-    e.salary = 5000000
-    println("Gaji: ${e.salary}")
+    // Coba set damage ke -50 (harus gagal/print peringatan)
+    pedang.damage = -50
 
-    e.increasePerformance()
+    // Coba set ke 9999 (harus dipaksa jadi 1000)
+    pedang.damage = 9999
 
-    println("Pajak yang harus dibayar: ${e.tax}")
+    // Print Tier-nya
+    println("Tier: ${pedang.tier}")
 }
