@@ -1,6 +1,7 @@
 package oop_00000066420_ImanuellGilland.week03
 
 class Employee(val name: String) {
+
     var salary: Int = 0
         set(value) {
             if (value < 0) {
@@ -10,4 +11,15 @@ class Employee(val name: String) {
                 field = value
             }
         }
+
+    private var performanceRating: Int = 3
+
+    fun increasePerformance() {
+        performanceRating++
+        println("Kinerja $name meningkat. Rating: $performanceRating")
+    }
+
+    fun printStatus() {
+        println("Karyawan: $name, Rating: $performanceRating")
+    }
 }
