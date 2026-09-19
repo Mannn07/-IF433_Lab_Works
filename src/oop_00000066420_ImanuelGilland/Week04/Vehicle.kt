@@ -11,3 +11,4 @@ open class Vehicle(val brand: String) {
     open fun honk() {
         println("Beep beep!")
     }
+}
