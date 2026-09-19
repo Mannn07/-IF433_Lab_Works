@@ -1,4 +1,4 @@
-package oop_00000066420_ImanuellGilland.week04
+package oop_00000066420_ImanuelGilland.Week04
 
 open class Vehicle(val brand: String) {
     var speed: Int = 0
@@ -11,4 +11,3 @@ open class Vehicle(val brand: String) {
     open fun honk() {
         println("Beep beep!")
     }
-}

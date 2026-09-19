@@ -1,4 +1,4 @@
-package oop_00000066420_ImanuellGilland.week04
+package oop_00000066420_ImanuelGilland.Week04
 
 open class Employee(val name: String, val baseSalary: Int) {
     open fun work() {

@@ -1,4 +1,4 @@
-package oop_00000066420_ImanuellGilland.week04
+package oop_00000066420_ImanuelGilland.Week04
 
 class Manager(name: String, baseSalary: Int) : Employee(name, baseSalary) {
     override fun work() {

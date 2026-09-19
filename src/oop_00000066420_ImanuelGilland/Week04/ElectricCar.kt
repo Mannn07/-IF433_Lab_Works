@@ -1,4 +1,4 @@
-package oop_00000066420_ImanuellGilland.week04
+package oop_00000066420_ImanuelGilland.Week04
 
 class ElectricCar(brand: String, numberOfDoors: Int, val batteryCapacity: Int) : Car(brand, numberOfDoors) {
 

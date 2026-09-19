@@ -1,4 +1,4 @@
-package oop_00000066420_ImanuellGilland.week04
+package oop_00000066420_ImanuelGilland.Week04
 
 class Developer(name: String, baseSalary: Int, val programmingLanguage: String) : Employee(name, baseSalary) {
     override fun work() {

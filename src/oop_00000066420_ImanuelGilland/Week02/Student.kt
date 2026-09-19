@@ -1,4 +1,4 @@
-package oop_00000066420_ImanuellGilland.week02
+package oop_00000066420_ImanuelGilland.Week02
 
 class Student(
     val name: String,

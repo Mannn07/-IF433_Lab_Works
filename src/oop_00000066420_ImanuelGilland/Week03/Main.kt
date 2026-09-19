@@ -1,4 +1,4 @@
-package oop_00000066420_ImanuellGilland.week03
+package oop_00000066420_ImanuelGilland.Week03
 
 fun main() {
     // --- TUGAS 1: WEAPON ---
