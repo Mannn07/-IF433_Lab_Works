@@ -40,7 +40,15 @@ fun main() {
     val daftarPembayaran: List<PaymentMethod> = listOf(eWallet, creditCard)
 
     for (pembayaran in daftarPembayaran) {
+        // Pemanggilan pertama (EWallet akan gagal karena saldo kurang, CreditCard berhasil)
         pembayaran.processPayment(75000.0)
+
+        // Smart Casting Challenge: Deteksi jika EWallet, top up 50000.0, lalu coba bayar lagi
+        if (pembayaran is EWallet) {
+            println("=> Saldo tidak cukup. Terdeteksi EWallet, melakukan top up otomatis...")
+            pembayaran.topUp(50000.0)
+            pembayaran.processPayment(75000.0)
+        }
+        println("----------------------------------------")
     }
-    println()
 }
