@@ -34,4 +34,13 @@ fun main() {
         "Laptop",
         4500000.0
     )
+
+    for (item in mixedData) {
+        val text = item as? String
+
+        // Hanya cetak jika casting berhasil
+        text?.let {
+            println("Ditemukan teks: ${it.uppercase()}")
+        }
+    }
 }
