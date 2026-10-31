@@ -1,15 +1,10 @@
 package oop_00000066420_ImanuelGilland.week07
 
 fun main() {
-    val user1 = User("Imanuel", 21)
+    val response: ApiResponse = ApiResponse.Loading
 
-    val user2 = user1.copy(age = 22)
-
-    println("User pertama: $user1")
-    println("User hasil copy: $user2")
-
-    val (name, age) = user2
-
-    println("Nama: $name")
-    println("Umur: $age")
+    when (response) {
+        is ApiResponse.Success -> println(response.uiMessage)
+        is ApiResponse.Error -> println(response.uiMessage)
+    }
 }
