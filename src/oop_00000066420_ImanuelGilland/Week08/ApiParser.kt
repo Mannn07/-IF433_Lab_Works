@@ -41,4 +41,18 @@ class ApiParser {
             else -> null
         }
     }
+    fun checkout(product: Product) {
+
+        // Mengambil ID berdasarkan jenis produk
+        val id = when (product) {
+            is Electronic -> product.id
+            is Clothing -> product.id
+        }
+
+        // Memanggil Java Payment Service
+        val transactionId = JavaPaymentService.processPayment(id)
+
+        // Menggunakan !! sesuai instruksi modul
+        println("Transaction ID: ${transactionId!!}")
+    }
 }
