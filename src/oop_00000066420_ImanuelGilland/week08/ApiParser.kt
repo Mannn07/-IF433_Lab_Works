@@ -4,7 +4,6 @@ class ApiParser {
 
     fun parseProduct(rawJson: Map<String, Any?>): Product? {
 
-        // ID dan nama wajib tersedia
         val id = requireNotNull(rawJson["id"] as? String) {
             "API Invalid: Missing ID"
         }
@@ -13,11 +12,9 @@ class ApiParser {
             "API Invalid: Missing Name"
         }
 
-        // Mengambil tipe produk
         val type = rawJson["type"] as? String
 
         return when (type) {
-
             "ELECTRONIC" -> {
                 val warranty = rawJson["warranty"] as? Int ?: 12
 
@@ -41,18 +38,17 @@ class ApiParser {
             else -> null
         }
     }
+
     fun checkout(product: Product) {
 
-        // Mengambil ID berdasarkan jenis produk
         val id = when (product) {
             is Electronic -> product.id
             is Clothing -> product.id
         }
 
-        // Memanggil Java Payment Service
-        val transactionId = JavaPaymentService.processPayment(id)
+        val transactionId =
+            JavaPaymentService.processPayment(id)
 
-        // Menggunakan !! sesuai instruksi modul
         println("Transaction ID: ${transactionId!!}")
     }
 }
