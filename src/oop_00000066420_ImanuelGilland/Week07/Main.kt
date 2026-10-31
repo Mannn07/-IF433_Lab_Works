@@ -1,10 +1,10 @@
 package oop_00000066420_ImanuelGilland.week07
 
-class NetworkClient private constructor(val baseUrl: String) {
+fun main() {
+    DatabaseManager.connect()
 
-    companion object {
-        fun create(url: String): NetworkClient {
-            return NetworkClient(url)
-        }
-    }
+    val client = NetworkClient.create("https://api.umn.ac.id")
+    println("Base URL: ${client.baseUrl}")
+
+    DatabaseManager.disconnect()
 }
