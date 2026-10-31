@@ -1,10 +1,10 @@
 package oop_00000066420_ImanuelGilland.week07
 
 fun main() {
-    DatabaseManager.connect()
+    val user1 = User("Imanuel", 21)
+    val user2 = User("Imanuel", 21)
 
-    val client = NetworkClient.create("https://api.umn.ac.id")
-    println("Base URL: ${client.baseUrl}")
-
-    DatabaseManager.disconnect()
+    println(user1)
+    println(user2)
+    println("Apakah kedua user sama? ${user1 == user2}")
 }
