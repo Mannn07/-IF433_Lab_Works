@@ -29,4 +29,8 @@ fun main() {
     topPerformersString.forEach { println(it) }
     worstPerformersString.forEach { println(it) }
     println("Unique trading pairs: $uniquePairs")
+    check(closedTrades.all { it.status == "CLOSED" })
+    check(topPerformersString.size == winningTrades.size)
+    check(worstPerformersString.size == losingTrades.size)
+    println("Pipeline validation: SUCCESS")
 }
