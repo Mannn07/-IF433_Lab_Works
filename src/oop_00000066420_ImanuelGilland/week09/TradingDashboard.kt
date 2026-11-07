@@ -24,4 +24,5 @@ fun main() {
         .map {
             "LOSS [${it.pair} - ${it.position}]: ${String.format(java.util.Locale.US, "%+.1f", it.roe)}% ROE (Lev: ${it.leverage}x)"
         }
+    val uniquePairs = tradeHistory.map { it.pair }.toSet()
 }
